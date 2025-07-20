@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Graphic Designer, UX/UI Designer , Front-end React Developer">
+    <meta name="description" content="Portfolio de Ganemtore Wend-Yam Bernard, UX/UI Designer et Développeur Front-End. Découvrez mes projets de design digital, développement web et produits numériques. Contactez-moi pour vos besoins en design et développement.">
+    <meta name="keywords" content="UX, UI, Designer, Graphic Designer, Front-end Developer, React Developer, Portfolio, Digital Products, Web Design, Contact">
+    <meta name="author" content="Ganemtore Wend-Yam Bernard">
+    <meta property="og:image" content="img/" />
+    <title>The Uxer | Designer Numérique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- <style>
+        :root {
+            --noir: #111111;
+            --blanc: #f9f9f9;
+            --gris: #333333;
+            --gris-clair: #777777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--noir);
+            color: var(--blanc);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(17, 17, 17, 0.9);
+            z-index: 100;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(249, 249, 249, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--blanc);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gris-clair);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--blanc);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections communes */
+        section {
+            min-height: 100vh;
+            padding: 8rem 4% 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--blanc);
+        }
+
+        /* Hero */
+        #hero {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            color: var(--gris-clair);
+        }
+
+        .hero-illustration {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 400px;
+            opacity: 0.2;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+            40% {transform: translateY(-20px) translateX(-50%);}
+            60% {transform: translateY(-10px) translateX(-50%);}
+        }
+
+        /* About */
+        #about {
+            background-color: rgba(15, 15, 15, 0.7);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            position: relative;
+            height: 400px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid var(--gris-clair);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--gris);
+            padding: 2rem;
+            border-radius: 2px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--blanc);
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--gris-clair);
+        }
+
+        /* Portfolio */
+        #portfolio {
+            background-color: rgba(15, 15, 15, 0.7);
+        }
+
+        .portfolio-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid var(--gris-clair);
+            color: var(--blanc);
+            padding: 0.5rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--blanc);
+            color: var(--noir);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background-color: rgba(17, 17, 17, 0.9);
+            transition: bottom 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            bottom: 0;
+        }
+
+        .portfolio-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-category {
+            color: var(--gris-clair);
+            font-size: 0.9rem;
+        }
+
+        /* Digital Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--gris);
+            padding: 1.5rem;
+            border-radius: 2px;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-thumbnail {
+            position: relative;
+            margin-bottom: 1rem;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--blanc);
+            color: var(--noir);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 2px;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-description {
+            color: var(--gris-clair);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product-button {
+            display: inline-block;
+            background-color: var(--blanc);
+            color: var(--noir);
+            padding: 0.5rem 1.5rem;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .product-button:hover {
+            background-color: var(--gris-clair);
+        }
+
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--gris-clair);
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--gris-clair);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: var(--gris);
+            border: 1px solid var(--gris-clair);
+            padding: 0.8rem 1rem;
+            color: var(--blanc);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--blanc);
+            color: var(--noir);
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--gris-clair);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 4%;
+            text-align: center;
+            border-top: 1px solid var(--gris);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--blanc);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--gris-clair);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--gris-clair);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                height: 300px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: var(--noir);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .menu-btn {
+                display: block;
+            }
+            
+            .hero-illustration {
+                display: none;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style> -->
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo"> <img src="img/logo.png" width="50" height="50" alt=""> The Uxer</div>
+        <ul class="nav-links">
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#about">A propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#produits">Produits</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">GANEMTORE Wend-Yam Bernard</h1>
+            <p class="hero-subtitle">UX/Web Designer | Front-end React | Graphic Designer</p>
+            <div>
+                <a href="#portfolio" type="button" class="filter-btn">Voir mon travail</a>
+                <a href="#contact" class="filter-btn">Me contacter</a>
+            </div>
+        </div>
+        <div class="hero-illustration">
+            <img src="img/profil.png" alt="PHOTO DE PROFIL" />
+            <div class="scroll-down" style="margin-top: 30px;">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">À propos</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Je suis Ganemtore,alias The Uxer, UX/UI Designer et Développeur Front-End passionné par la création d’expériences digitales performantes et élégantes.
+                Je conçois des interfaces web et mobiles intuitives, centrées sur l’utilisateur, et je les développe avec des technologies modernes comme React.js.
+
+                Au-delà du design, je m’attache à créer des solutions qui répondent aux besoins réels des utilisateurs tout en respectant les objectifs business.
+                Mon expertise couvre la stratégie UX, le design UI, et l’intégration front-end pour des produits digitaux sur-mesure.
+
+                🎯 Mon engagement : proposer des designs fonctionnels, esthétiques et techniquement solides pour des projets qui marquent.
+
+                Vous avez un projet digital ? Discutons-en</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <h2 class="section-title">Mes services</h2>
+        <div class="services-grid">
+            <!-- <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <h3 class="service-title">Portraits réalistes</h3>
+                <p class="service-description">Capturer l'essence de votre personnalité dans des œuvres au fusain, à l'huile ou au numérique. Des portraits uniques qui racontent votre histoire.</p>
+            </div> -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <h3 class="service-title">Design UX/UI</h3>
+                <p class="service-description">Conception d'interfaces intuitives et esthétiques centrées sur l'expérience utilisateur. De la recherche utilisateur au prototypage haute fidélité.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h3 class="service-title">Développement Front-end</h3>
+                <p class="service-description">Implémentation précise de designs en React.js, HTML5/CSS3 modernes. Sites performants, accessibles et responsive par nature.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chess-queen"></i>
+                </div>
+                <h3 class="service-title">Stratégie visuelle</h3>
+                <p class="service-description">Définition d'une identité visuelle cohérente pour votre projet ou entreprise. De la direction artistique aux guidelines détaillées.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2 class="section-title">Portfolio</h2>
+        <div class="portfolio-filter">
+            <button class="filter-btn active" data-filter="all">Tout</button>
+            <button class="filter-btn" data-filter="art">Visuel Design</button>
+            <button class="filter-btn" data-filter="design">UX/UI Design</button>
+            <button class="filter-btn" data-filter="dev">Site Web</button>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" data-category="art">
+                <img src="img/2.png" alt="Portrait réaliste au fusain d'un visage expressif correspondant aux traits africains avec forts contrastes ombres/lumières" />
+                <div class="portfolio-overlay">
+                    <h4 class="portfolio-title">Flyer Design</h4>
+                    <p class="portfolio-category">Social média poste, support de communication</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="design">
+                <img src="img/1.png" alt="Maquette UI moderne pour une application mobile bancaire avec couleurs vives et navigation fluide" />
+                <div class="portfolio-overlay">
+                    <h4 class="portfolio-title">App e-commerce</h4>
+                    <p class="portfolio-category">UX/UI Design</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="dev">
+                <img src="img/7.png" alt="Capture d'écran d'un site web culturel responsive avec animation scroll et typographie expressive" />
+                <div class="portfolio-overlay">
+                    <h4 class="portfolio-title">Site de galerie</h4>
+                    <p class="portfolio-category">Développement React</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="art">
+                <img src="img/3.png" alt="Peinture digitale abstraite mélangeant motifs traditionnels africains et éléments géométriques futuristes" />
+                <div class="portfolio-overlay">
+                    <h4 class="portfolio-title">Conception visuelle</h4>
+                    <p class="portfolio-category">Church flyer design</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="design">
+                <img src="img/5.jpg" alt="Système de design complet avec palette de couleurs, typographies et composants UI cohérents" />
+                <div class="portfolio-overlay">
+                    <h4 class="portfolio-title">Design de logo</h4>
+                    <p class="portfolio-category">Stratégie visuelle</p>
+                </div>
+            </div>
+            <div class="portfolio-item" data-category="dev">
+                <img src="img/6.png" alt="Interface d'admin dashboard moderne avec visualisation de données et navigation latérale" />
+                <div class="portfolio-overlay">
+                    <h4 class="portfolio-title">Landing page, site de restaurant</h4>
+                    <p class="portfolio-category">Développement React</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Products Section -->
+    <section id="produits">
+        <h2 class="section-title">Produits Digitaux</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-thumbnail">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f5b8d5d1-91db-4df1-8df2-a71198ea0247.png" alt="Couverture de formation en ligne sur le design digital">
+                    <div class="product-badge">Formation</div>
+                </div>
+                <h3 class="product-title">Design Digital: Fondamentaux UX/UI</h3>
+                <p class="product-description">Formation complète pour maîtriser les principes du design d'interface moderne et centré utilisateur.</p>
+                <div class="product-price">29,900 FCFA</div>
+                <a href="#" class="product-button">Voir le programme</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-thumbnail">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/232008ce-8bf4-4df7-9dfa-d09b968bb7e5.png" alt="Couverture d'ebook sur l'art numérique">
+                    <div class="product-badge">Ebook</div>
+                </div>
+                <h3 class="product-title">L'Art Numérique Africain</h3>
+                <p class="product-description">Guide complet pour intégrer les motifs traditionnels africains dans des créations digitales.</p>
+                <div class="product-price">9,900 FCFA</div>
+                <a href="#" class="product-button">Feuilleter</a>
+            </div>
+
+            <div class="product-card">
+                <div class="product-thumbnail">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/02925a4b-002e-4b92-9846-aa4480fac9a3.png" alt="Aperçu de template Figma">
+                    <div class="product-badge">Template</div>
+                </div>
+                <h3 class="product-title">UI Kit Africain Pro</h3>
+                <p class="product-description">Collection complète de composants UI inspirés de l'art africain pour Figma.</p>
+                <div class="product-price">14,900 FCFA</div>
+                <a href="#" class="product-button">Télécharger</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Localisation</h3>
+                        <p>Bobo-Dioulasso, Burkina Faso</p>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <a href="mailto:contact@yameogoart.com">ganemtorewybernard@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>WhatsApp</h3>
+                        <a href="https://wa.me/226XXXXXXXX">+226 07 43 30 28</a>
+                    </div>
+                </div>
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Horaires</h3>
+                        <p>Lundi-Vendredi: 9h-18h</p>
+                        <p>Week-end: Sur rendez-vous</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Envoyer le message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
+            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+        <p class="copyright">© 2025 Bernard Ganemtore | Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Portfolio filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.dataset.filter;
+                
+                // Filter items
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Basic form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !subject || !message) {
+                alert('Veuillez remplir tous les champs du formulaire.');
+                return;
+            }
+            
+            // Here you would typically send the form data to a server
+            alert('Message envoyé avec succès ! Je vous contacterai bientôt.');
+            contactForm.reset();
+        });
+        
+        // Scroll reveal animation
+        window.addEventListener('scroll', reveal);
+        
+        function reveal() {
+            const reveals = document.querySelectorAll('section');
+            
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                const revealPoint = 150;
+                
+                if (revealTop < windowHeight - revealPoint) {
+                    reveals[i].style.opacity = '1';
+                    reveals[i].style.transform = 'translateY(0)';
+                }
+            }
+        }
+        
+        // Initialize animation state
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s, transform 0.8s';
+        });
+        
+        // Trigger initial reveal
+        reveal();
+    </script>
+</body>
+</html>
+
