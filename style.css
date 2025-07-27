@@ -674,8 +674,15 @@
             .hero-illustration {
                 display: none;
             }
-            .hero-content {
-                padding: 0 1rem;
+            .hero-illustration img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                object-fit: contain;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
             }
             .section-title {
                 font-size: 1.5rem;
@@ -701,7 +708,7 @@
                 background-color: #f9f9f9;
             }
             .hero-content {
-                max-width: 80%;
+                max-width: 100%;
                 position :absolute;
                 top: 80%;
                 left: 50%;
@@ -716,12 +723,9 @@
             .hero-title {
                 font-size: 2.5rem;
             }
-            .hero-illustration img {
-                width: 100%;
-                max-width: 100%;
-                height: auto;
-                display: block;
-                object-fit: contain;
+            .hero-content div .filter-btn{
+                font-size: 0.8rem;
+                padding: 0.5rem 1rem;
             }
             .scroll-down {
                 position: absolute;

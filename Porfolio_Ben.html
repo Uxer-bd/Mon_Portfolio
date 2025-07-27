@@ -244,22 +244,22 @@
                     </div>
                 </div>
             </div>
-            <form class="contact-form">
+            <form method="POST" class="contact-form">
                 <div class="form-group">
                     <label for="name">Nom complet</label>
-                    <input type="text" id="name" required>
+                    <input name="nom" type="text" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input name="email" type="email" id="email" required>
                 </div>
                 <div class="form-group">
                     <label for="subject">Sujet</label>
-                    <input type="text" id="subject" required>
+                    <input name="sujet" type="text" id="subject" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" required></textarea>
+                    <textarea name="text" id="message" required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Envoyer le message</button>
             </form>
@@ -269,11 +269,11 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="#" aria-label="Behance"><i class="fab fa-behance"></i></a>
-            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.behance.net/Uxer-bd" aria-label="Behance"><i class="fab fa-behance"></i></a>
+            <a href="https://dribbble.com/Uxer-bd" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+            <a href="https://www.facebook.com/BernardWyGanemtore/?locale=fr_FR" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/ganemtorewybernard/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/Uxer-bd" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
         <p class="copyright">© 2025 Bernard Ganemtore | Tous droits réservés</p>
     </footer>
@@ -327,39 +327,14 @@
             });
         });
         
-        // Form submission
-        const contactForm = document.querySelector('.contact-form');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Basic form validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            if (!name || !email || !subject || !message) {
-                alert('Veuillez remplir tous les champs du formulaire.');
-                return;
-            }
-            
-            // Here you would typically send the form data to a server
-            alert('Message envoyé avec succès ! Je vous contacterai bientôt.');
-            contactForm.reset();
-        });
-        
         // Scroll reveal animation
         window.addEventListener('scroll', reveal);
-        
         function reveal() {
             const reveals = document.querySelectorAll('section');
-            
             for (let i = 0; i < reveals.length; i++) {
                 const windowHeight = window.innerHeight;
                 const revealTop = reveals[i].getBoundingClientRect().top;
                 const revealPoint = 150;
-                
                 if (revealTop < windowHeight - revealPoint) {
                     reveals[i].style.opacity = '1';
                     reveals[i].style.transform = 'translateY(0)';
@@ -376,6 +351,35 @@
         
         // Trigger initial reveal
         reveal();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+    (function(){
+        emailjs.init({publicKey: "nWyNXuyv1U-pM5nTQ"});
+    })();
+    const contactForm = document.querySelector('.contact-form');
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        if (!name || !email || !subject || !message) {
+            alert('Veuillez remplir tous les champs du formulaire.');
+            return;
+        }
+        emailjs.send("service_kvx4q5b","template_ha077wg", {
+            name: name,
+            email: email,
+            sujet: subject,
+            message: message
+        }).then(function(response) {
+            alert('Message envoyé avec succès ! Je vous contacterai bientôt.');
+            contactForm.reset();
+        }, function(error) {
+            alert('Erreur lors de l\'envoi du message. Veuillez réessayer plus tard.');
+        });
+    });
     </script>
 </body>
 </html>
