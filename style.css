@@ -74,7 +74,7 @@
         /* Sections communes */
         section {
             min-height: 100vh;
-            padding: 8rem 4% 4rem;
+            padding: 1rem 4% 4rem;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -487,8 +487,64 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
+            .nav-links a {
+                font-size: 0.7rem;
+                font-weight: 300;
+            }
+            .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            }
+            .logo {
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            }
+            #hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                position: relative;
+            }
+            .hero-illustration {
+                width: 100%;
+                max-width: 400px;
+                margin: 0;
+                height: auto;
+                position: relative;
+            }
+            .hero-content {
+                max-width: 80%;
+                position :absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                background: rgba(17,17,17,0.6);
+                color: var(--blanc);
+                padding: 2rem;
+                border-radius: 8px;
+                width: 80%;
+            }
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+            .hero-illustration img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                object-fit: contain;
+            }
+            .scroll-down {
+            position: absolute;
+            bottom: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
             }
             
             .hero-subtitle {
@@ -507,7 +563,9 @@
             .contact-container {
                 grid-template-columns: 1fr;
             }
+
         }
+
 
         @media (max-width: 768px) {
             .nav-links {
@@ -542,17 +600,135 @@
             .section-title {
                 font-size: 2.5rem;
             }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-item {
+                height: 250px;
+            }
+            #hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                position: relative;
+            }
+            .hero-illustration {
+                width: 100%;
+                max-width: 400px;
+                margin: 0;
+                height: auto;
+                position: relative;
+            }
+            .hero-content {
+                max-width: 80%;
+                position :absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                background: rgba(17,17,17,0.6);
+                color: var(--blanc);
+                padding: 2rem;
+                border-radius: 8px;
+                width: 80%;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-illustration img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                object-fit: contain;
+            }
+            .scroll-down {
+            position: absolute;
+            bottom: -3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+            }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 1rem;
             }
             
             .section-title {
-                font-size: 2rem;
+                font-size: 0.5rem;
             }
             
             .portfolio-grid {
                 grid-template-columns: 1fr;
-            }}
+            }
+            .about-text p {
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            }
+            #about{
+                margin-top: 100px;
+            }
+            .hero-illustration {
+                display: none;
+            }
+            .hero-content {
+                padding: 0 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .portfolio-item {
+                height: 250px;
+            }
+            #hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                position: relative;
+            }
+            .hero-illustration {
+                width: 100%;
+                max-width: 400px;
+                margin: 0;
+                height: auto;
+                position: relative;
+                background-color: #f9f9f9;
+            }
+            .hero-content {
+                max-width: 80%;
+                position :absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                background: rgba(17,17,17,0.6);
+                color: var(--blanc);
+                padding: 2rem;
+                border-radius: 8px;
+                width: 80%;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-illustration img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                object-fit: contain;
+            }
+            .scroll-down {
+                position: absolute;
+                bottom: -3rem;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1.5rem;
+                animation: bounce 2s infinite;
+            }
+        }
