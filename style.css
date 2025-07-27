@@ -122,6 +122,7 @@
             gap: 2rem; /* Espace entre les deux blocs */
             min-height: 100vh;
             padding: 8rem 0% 4rem;
+            margin-bottom: 2rem; /* Réduit l’espace sous le hero */
         }
 
         .hero-content {
@@ -139,7 +140,7 @@
             font-size: 20px;
             margin-bottom: 20px;
             font-weight: 300;
-            color: var(--gris-clair);
+            color: #c6c6c6;
         }
 
         .hero-illustration {
@@ -177,6 +178,7 @@
         /* About */
         #about {
             background-color: rgba(15, 15, 15, 0.7);
+            margin-top: 0;
         }
 
         .about-content {
@@ -620,7 +622,7 @@
                 position: relative;
             }
             .hero-content {
-                max-width: 80%;
+                max-width: 100%;
                 position :absolute;
                 top: 80%;
                 left: 50%;
@@ -630,7 +632,7 @@
                 color: var(--blanc);
                 padding: 2rem;
                 border-radius: 8px;
-                width: 80%;
+                width: 100%;
             }
             .hero-title {
                 font-size: 2.5rem;
@@ -672,14 +674,12 @@
                 margin-top: 100px;
             }
             .hero-illustration {
-                display: none;
-            }
-            .hero-illustration img {
+                display: block; /* <-- Ajoute cette ligne */
                 width: 100%;
-                max-width: 100%;
+                max-width: 400px;
+                margin: 0;
                 height: auto;
-                display: block;
-                object-fit: contain;
+                position: relative;
             }
             .hero-subtitle {
                 font-size: 1rem;
@@ -703,9 +703,9 @@
                 width: 100%;
                 max-width: 400px;
                 margin: 0;
+                padding: 0;
                 height: auto;
                 position: relative;
-                background-color: #f9f9f9;
             }
             .hero-content {
                 max-width: 100%;
@@ -718,7 +718,7 @@
                 color: var(--blanc);
                 padding: 2rem;
                 border-radius: 8px;
-                width: 80%;
+                width: 100%;
             }
             .hero-title {
                 font-size: 2.5rem;
@@ -735,4 +735,70 @@
                 font-size: 1.5rem;
                 animation: bounce 2s infinite;
             }
+        }
+
+        @media (max-width: 360px) {
+            section {
+            min-height: unset;
+            padding: 0.5rem 2% 1.5rem;
+            display: block;
+            }
+            .hero-illustration {
+                display: block; /* <-- Ajoute cette ligne */
+                width: 100%;
+                max-width: 400px;
+                margin: 0;
+                height: auto;
+                position: relative;
+            }
+            #hero {
+                flex-direction: column-reverse;
+                align-items: center;
+                text-align: center;
+                position: relative;
+                margin-bottom: 2rem; /* Réduit l’espace sous le hero */
+            }
+            .hero-illustration {
+                width: 100%;
+                max-width: 400px;
+                margin: 0;
+                height: auto;
+                position: relative;
+            }
+            .hero-content {
+                max-width: 100%;
+                position :absolute;
+                top: 80%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                background: rgba(17,17,17,0.6);
+                color: var(--blanc);
+                padding: 1rem;
+                border-radius: 8px;
+                width: 100%;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+        
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .hero-content div .filter-btn{
+                font-size: 0.5rem;
+                padding: 0.5rem 1rem;
+            }
+            #about {
+                margin-top: 0;
+            }
+            .scroll-down {
+                position: absolute;
+                bottom: -3rem;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 1.5rem;
+                animation: bounce 2s infinite;
+            }
+
         }
