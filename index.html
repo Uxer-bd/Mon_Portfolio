@@ -494,7 +494,6 @@
         <section class="badges-section">
             <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
             <div class="badges-container">
-                
                 <div class="badge-card">
                     <div class="badge-icon"><img src="img/Badgemeta.png" alt="Badge Meta Front-End Developer" width="50px"></div>
                     <div class="badge-info">
@@ -680,14 +679,25 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         lucide.createIcons();
-        const apiKey = ""; 
+
+        // --- CONFIGURATION ---
+        // Collez votre clé API obtenue sur https://aistudio.google.com/ entre les guillemets
+        const apiKey = "AIzaSyDoZ2Ayow3RZds_xUxcD0sKuDd85S4BPFk";
 
         async function callGemini(prompt, systemPrompt = "Tu es l'assistant de Bernard (The Uxer). Réponds en français de manière professionnelle et concise.") {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            // Utilisation du modèle 1.5-flash pour une meilleure compatibilité et rapidité sur serveur
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] }
             };
+
+            // Gestion des erreurs si la clé est vide
+            if (!apiKey) {
+                console.error("Clé API manquante.");
+                return "L'assistant n'est pas encore configuré. Veuillez ajouter une clé API.";
+            }
 
             for (let i = 0; i < 5; i++) {
                 try {
@@ -696,9 +706,17 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
+                    
                     const result = await response.json();
+                    
+                    if (result.error) {
+                        console.error("Erreur Google API:", result.error.message);
+                        return "Désolé, je rencontre une difficulté technique (Erreur API).";
+                    }
+
                     return result.candidates?.[0]?.content?.parts?.[0]?.text || "Désolé, je n'ai pas pu générer de réponse.";
                 } catch (err) {
+                    // Stratégie de retry (attente exponentielle)
                     await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
                 }
             }
