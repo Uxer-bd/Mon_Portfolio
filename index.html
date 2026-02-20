@@ -724,7 +724,10 @@
         }
 
         function toggleAI() {
-            document.getElementById('aiWindow').classList.toggle('active');
+            const win = document.getElementById('aiWindow');
+            if (win) {
+                win.classList.toggle('active');
+            }
         }
 
         async function sendAIQuery() {
@@ -753,17 +756,32 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
-        document.getElementById('btnSummarize').addEventListener('click', async () => {
-            const msgArea = document.getElementById('Message');
-            const loader = document.getElementById('aiSummaryLoader');
-            if (!msgArea.value.trim()) return;
+        // document.getElementById('btnSummarize').addEventListener('click', async () => {
+        //     const msgArea = document.getElementById('Message');
+        //     const loader = document.getElementById('aiSummaryLoader');
+        //     if (!msgArea.value.trim()) return;
 
-            loader.style.display = 'block';
-            const prompt = `Améliore et rend plus professionnel le message suivant pour un portfolio de designer : "${msgArea.value}". Renvoie uniquement le texte amélioré.`;
-            const improved = await callGemini(prompt);
-            msgArea.value = improved;
-            loader.style.display = 'none';
-        });
+        //     loader.style.display = 'block';
+        //     const prompt = `Améliore et rend plus professionnel le message suivant pour un portfolio de designer : "${msgArea.value}". Renvoie uniquement le texte amélioré.`;
+        //     const improved = await callGemini(prompt);
+        //     msgArea.value = improved;
+        //     loader.style.display = 'none';
+        // });
+
+        const btnSummarize = document.getElementById('btnSummarize');
+        if (btnSummarize) {
+            btnSummarize.addEventListener('click', async () => {
+                const msgArea = document.getElementById('Message');
+                const loader = document.getElementById('aiSummaryLoader');
+                if (!msgArea.value.trim()) return;
+
+                if (loader) loader.style.display = 'block';
+                const prompt = `Améliore et rend plus professionnel le message suivant pour un portfolio de designer : "${msgArea.value}". Renvoie uniquement le texte amélioré.`;
+                const improved = await callGemini(prompt);
+                msgArea.value = improved;
+                if (loader) loader.style.display = 'none';
+            });
+        }
 
         let currentProjectId = null;
         document.getElementById('btnAnalyzeProject').addEventListener('click', async () => {
