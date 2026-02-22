@@ -681,47 +681,29 @@
         lucide.createIcons();
 
         // --- CONFIGURATION ---
-        // Collez votre clé API obtenue sur https://aistudio.google.com/ entre les guillemets
-        const apiKey = "AIzaSyDoZ2Ayow3RZds_xUxcD0sKuDd85S4BPFk";
-
-        async function callGemini(prompt, systemPrompt = "Tu es l'assistant de Bernard (The Uxer). Réponds en français de manière professionnelle et concise.") {
-            // Utilisation du modèle 1.5-flash pour une meilleure compatibilité et rapidité sur serveur
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+        async function callGemini(prompt, systemPrompt = "Tu es l'assistant de Bernard.") {
+        // On appelle notre propre API interne
+        const url = '/api/chat'; 
+        
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt, systemPrompt }) // On envoie les deux infos
+            });
             
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
+            const result = await response.json();
 
-            // Gestion des erreurs si la clé est vide
-            if (!apiKey) {
-                console.error("Clé API manquante.");
-                return "L'assistant n'est pas encore configuré. Veuillez ajouter une clé API.";
+            if (result.reply) {
+                return result.reply;
+            } else {
+                return "Désolé, je rencontre une petite erreur technique.";
             }
-
-            for (let i = 0; i < 5; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (result.error) {
-                        console.error("Erreur Google API:", result.error.message);
-                        return "Désolé, je rencontre une difficulté technique (Erreur API).";
-                    }
-
-                    return result.candidates?.[0]?.content?.parts?.[0]?.text || "Désolé, je n'ai pas pu générer de réponse.";
-                } catch (err) {
-                    // Stratégie de retry (attente exponentielle)
-                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
-                }
-            }
-            return "Une erreur est survenue lors de la connexion à l'IA.";
+        } catch (err) {
+            console.error("Erreur réseau:", err);
+            return "Problème de connexion au serveur.";
         }
+    }
 
         function toggleAI() {
             const win = document.getElementById('aiWindow');
@@ -736,37 +718,33 @@
             const text = input.value.trim();
             if (!text) return;
 
-            const userDiv = document.createElement('div');
-            userDiv.className = 'message user';
-            userDiv.innerText = text;
-            messages.appendChild(userDiv);
+            // Ajout message utilisateur
+            appendChatMessage(messages, text, 'user');
             input.value = '';
-            messages.scrollTop = messages.scrollHeight;
 
-            const loadingDiv = document.createElement('div');
-            loadingDiv.className = 'message ai';
-            loadingDiv.innerText = "Réflexion...";
-            messages.appendChild(loadingDiv);
-
-            const systemPrompt = `Tu es l'assistant personnel de Ganemtore Wend-Yam Bernard. Bernard est Designer UX/UI et Développeur Front-End certifié par Meta et Google. 
-            Tes réponses doivent encourager les visiteurs à collaborer avec lui. Garde un ton moderne, tech et courtois.`;
+            // Ajout bulle "Réflexion" temporaire
+            const loadingDiv = appendChatMessage(messages, "En train d'écrire...", 'ai');
+            
+            const systemPrompt = `Tu es l'assistant personnel de Ganemtore Wend-Yam Bernard. 
+            Bernard est Designer UX/UI et Développeur Front-End certifié par Meta et Google. 
+            Sois pro, concis et encourage le contact.`;
             
             const aiResponse = await callGemini(text, systemPrompt);
+            
+            // On remplace le texte de chargement par la vraie réponse
             loadingDiv.innerText = aiResponse;
             messages.scrollTop = messages.scrollHeight;
         }
 
-        // document.getElementById('btnSummarize').addEventListener('click', async () => {
-        //     const msgArea = document.getElementById('Message');
-        //     const loader = document.getElementById('aiSummaryLoader');
-        //     if (!msgArea.value.trim()) return;
-
-        //     loader.style.display = 'block';
-        //     const prompt = `Améliore et rend plus professionnel le message suivant pour un portfolio de designer : "${msgArea.value}". Renvoie uniquement le texte amélioré.`;
-        //     const improved = await callGemini(prompt);
-        //     msgArea.value = improved;
-        //     loader.style.display = 'none';
-        // });
+        // Petite fonction helper pour éviter la répétition de code
+        function appendChatMessage(container, text, side) {
+            const div = document.createElement('div');
+            div.className = `message ${side}`;
+            div.innerText = text;
+            container.appendChild(div);
+            container.scrollTop = container.scrollHeight;
+            return div;
+        }
 
         const btnSummarize = document.getElementById('btnSummarize');
         if (btnSummarize) {
